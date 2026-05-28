@@ -2,7 +2,9 @@
 #define SWARM_CONTROLLER_H
 
 #include <argos3/core/control_interface/ci_controller.h>
-
+// interface for sensors and actuators 
+#include <argos3/plugins/robots/generic/control_interface/ci_differential_steering_actuator.h>
+#include <argos3/plugins/robots/foot-bot/control_interface/ci_footbot_proximity_sensor.h>
 using namespace argos;
 
 class CMyController : public CCI_Controller {
@@ -14,6 +16,11 @@ public:
     virtual void ControlStep();
     virtual void Reset();
     virtual void Destroy();
+private:
+    CCI_DifferentialSteeringActuator* m_pcWheels;
+    CCI_FootBotProximitySensor* m_pcProximity;
+
+    Real m_fTargetSpeed; // config params
 };
 
 #endif
