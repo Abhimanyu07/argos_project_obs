@@ -7,7 +7,7 @@
   </framework>
 
   <controllers>
-    <swarm_controller id="my_swarm_brain" library="build/libswarm_controller.so">
+    <obstacle_avoidance_controller id="obstacle_avoider" library="build/libobstacle_avoidance_controller.so">
       <actuators>
         <differential_steering implementation="default" />
       </actuators>
@@ -15,7 +15,7 @@
         <footbot_proximity implementation="default" show_rays="true" />
       </sensors>
       <params />
-    </swarm_controller>
+    </obstacle_avoidance_controller>
   </controllers>
 
   <arena size="5, 5, 1" center="0,0,0.5">
@@ -29,7 +29,7 @@
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
       <entity quantity="1" max_trials="100">
         <foot-bot id="fb">
-          <controller config="my_swarm_brain" />
+          <controller config="obstacle_avoider" />
         </foot-bot>
       </entity>
     </distribute>

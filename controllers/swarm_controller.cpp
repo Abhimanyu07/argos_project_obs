@@ -52,4 +52,4 @@ void CMyController::Destroy() {
 }
 
 
-REGISTER_CONTROLLER(CMyController, "swarm_controller")
+REGISTER_CONTROLLER(CMyController, "obstacle_avoidance_controller")
