@@ -21,6 +21,7 @@ link_directories(/usr/lib/argos3)
 add_library(swarm_controller SHARED 
     controllers/swarm_controller.cpp
     controllers/wall_follower.cpp
+    controllers/vacuum_cleaner.cpp
 )
 
 # Link your controller against the hardcoded libraries
