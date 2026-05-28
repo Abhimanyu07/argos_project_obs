@@ -7,7 +7,7 @@
   </framework>
 
   <controllers>
-    <obstacle_avoidance_controller id="obstacle_avoider" library="build/libobstacle_avoidance_controller.so">
+    <wall_follower_controller id="wall_follower" library="build/libswarm_controller.so">
       <actuators>
         <differential_steering implementation="default" />
       </actuators>
@@ -15,7 +15,7 @@
         <footbot_proximity implementation="default" show_rays="true" />
       </sensors>
       <params />
-    </obstacle_avoidance_controller>
+    </wall_follower_controller>
   </controllers>
 
   <arena size="5, 5, 1" center="0,0,0.5">
@@ -29,18 +29,18 @@
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
       <entity quantity="1" max_trials="100">
         <foot-bot id="fb">
-          <controller config="obstacle_avoider" />
+          <controller config="wall_follower" />
         </foot-bot>
       </entity>
     </distribute>
 
-    <distribute>
+    <!-- <distribute>
       <position method="uniform" min="-1.5,-1.5,0" max="1.5,1.5,0" />
       <orientation method="uniform" min="0,0,0" max="360,0,0" />  
       <entity quantity="3" max_trials="100">
       <box id="obstacle" size="0.5,0.5,0.5" movable="false"><body position="0,0,0" orientation="0,0,0" /></box>
         </entity>
-    </distribute>
+    </distribute> -->
 </arena>
   <physics_engines>
     <dynamics2d id="dyn2d" />

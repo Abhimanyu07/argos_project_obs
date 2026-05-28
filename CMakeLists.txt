@@ -18,9 +18,10 @@ link_directories(/usr/lib/argos3)
 # -----------------------------------------------------
 # Compile the Controller
 # -----------------------------------------------------
-add_library(obstacle_avoidance_controller SHARED 
+add_library(swarm_controller SHARED 
     controllers/swarm_controller.cpp
+    controllers/wall_follower.cpp
 )
 
 # Link your controller against the hardcoded libraries
-target_link_libraries(obstacle_avoidance_controller ${ARGOS_LIBRARIES} ${LUA_LIBRARIES})
+target_link_libraries(swarm_controller ${ARGOS_LIBRARIES} ${LUA_LIBRARIES})
