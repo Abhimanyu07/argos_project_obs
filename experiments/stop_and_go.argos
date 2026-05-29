@@ -6,13 +6,20 @@
     <experiment length="0" ticks_per_second="10" random_seed="124" />
   </framework>
 
+
+  <media>
+    <led id="led_channel" />
+  </media>
+
   <controllers>
     <stop_and_go_controller id="stop_go" library="build/libswarm_controller.so">
       <actuators>
         <differential_steering implementation="default" />
+        <leds implementation="default" medium="led_channel" />
       </actuators>
       <sensors>
         <footbot_proximity implementation="default" show_rays="true" />
+        <colored_blob_omnidirectional_camera implementation="rot_z_only" medium="led_channel" show_rays="true" />
       </sensors>
       <params />
     </stop_and_go_controller>
@@ -27,7 +34,7 @@
     <distribute>
       <position method="uniform" min="-1.5,-1.5,0" max="1.5,1.5,0" />
       <orientation method="uniform" min="0,0,0" max="360,0,0" />
-      <entity quantity="10" max_trials="100">
+      <entity quantity="20" max_trials="100">
         <foot-bot id="fb">
           <controller config="stop_go" />
         </foot-bot>
@@ -46,10 +53,15 @@
     <dynamics2d id="dyn2d" />
   </physics_engines>
 
-  <media />
 
   <visualization>
-    <qt-opengl />
+    <qt-opengl>
+    <camera>
+  <placements>
+    <placement index="0" position="-0.00291496,-0.17724,10.4133" look_at="-0.00291496,-0.17724,9.41329" up="0.0548868,-0.998493,0" lens_focal_length="53.8" />
+  </placements>
+</camera>
+</qt-opengl>
   </visualization>
 
 </argos-configuration>
