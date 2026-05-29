@@ -22,6 +22,7 @@ add_library(swarm_controller SHARED
     controllers/swarm_controller.cpp
     controllers/wall_follower.cpp
     controllers/vacuum_cleaner.cpp
+    controllers/stop_and_go.cpp
 )
 
 # Link your controller against the hardcoded libraries
