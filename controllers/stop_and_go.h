@@ -21,7 +21,7 @@ public:
 private:
     CCI_DifferentialSteeringActuator* m_pcWheels;
     CCI_FootBotProximitySensor* m_pcProximity;
-
+    bool IsRobotAhead();
     Real m_fTargetSpeed;
     UInt16 myStopTime;  
     bool isStopped; 

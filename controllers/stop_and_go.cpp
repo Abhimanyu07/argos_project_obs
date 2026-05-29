@@ -38,9 +38,15 @@ void CStopAndGo::ControlStep() {
 
     else{
         LEDs->SetAllColors(CColor::GREEN);
-        if (frontReading > 0.05f) {
-            myStopTime = MAXSTOP;
-            isStopped = true;
+        if (frontReading > 0.01f) {
+            if (IsRobotAhead()){
+                myStopTime = MAXSTOP;
+                isStopped = true;
+            }
+            else{
+                m_pcWheels->SetLinearVelocity(leftSpeed, -rightSpeed); // avoid it if obstacle/wall is detected but not a robot
+            }
+            
         }
         else if (leftReading > 0.1f) {
             m_pcWheels->SetLinearVelocity(leftSpeed*1.5f, 0.0f); // turn right if obstacle is too close on the left
@@ -62,6 +68,19 @@ void CStopAndGo::Reset() {
 
 void CStopAndGo::Destroy() {
     // Cleanup memory here
+}
+
+bool CStopAndGo::IsRobotAhead(){
+    const CCI_ColoredBlobOmnidirectionalCameraSensor::SReadings& CameraData = Camera->GetReadings();
+    for(int i=0; i<CameraData.BlobList.size(); ++i){
+        const CCI_ColoredBlobOmnidirectionalCameraSensor::SBlob& blobData = *CameraData.BlobList[i];
+        if(blobData.Color == CColor::RED || blobData.Color == CColor::GREEN){
+            Real bearing = blobData.Angle.GetValue();
+            if (bearing > -0.5f && bearing <0.5f){ // check if the detected blob is in front of the robot   
+            return true; }
+        }
+    }
+    return false;
 }
 
 

@@ -19,7 +19,7 @@
       </actuators>
       <sensors>
         <footbot_proximity implementation="default" show_rays="true" />
-        <colored_blob_omnidirectional_camera implementation="rot_z_only" medium="led_channel" show_rays="true" />
+        <colored_blob_omnidirectional_camera implementation="rot_z_only" medium="led_channel" show_rays="false" />
       </sensors>
       <params />
     </stop_and_go_controller>
