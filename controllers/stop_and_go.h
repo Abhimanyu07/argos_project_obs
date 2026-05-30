@@ -17,6 +17,7 @@ public:
     virtual void ControlStep();
     virtual void Reset();
     virtual void Destroy();
+    bool isRobotStopped() const { return isStopped; }
 
 private:
     CCI_DifferentialSteeringActuator* m_pcWheels;
