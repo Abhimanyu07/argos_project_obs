@@ -19,7 +19,7 @@ void CStopAndGo::Init(TConfigurationNode& t_node) {
 void CStopAndGo::ControlStep() {
     // This runs every single tick
     const CCI_FootBotProximitySensor::TReadings& proxReadings = m_pcProximity->GetReadings();
-    UInt16 MAXSTOP = 50; 
+    UInt16 MAXSTOP = 200; 
     Real frontReading = std::max({proxReadings[23].Value, proxReadings[0].Value, proxReadings[1].Value}); // 30 degree front cone
     Real leftReading = std::max({proxReadings[5].Value, proxReadings[6].Value, proxReadings[7].Value}); // 30 degree left cone
     Real rightReading = std::max({proxReadings[17].Value, proxReadings[18].Value, proxReadings[19].Value}); // 30 degree right cone
