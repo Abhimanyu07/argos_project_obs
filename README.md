@@ -1,7 +1,7 @@
 # Collective Robotics: Robot Behaviors and Swarm Systems
 
 This project contains ARGoS3 experiments, recorded stop-and-go data, analysis
-plots, screenshots, and a demo video for the behaviors required in Tutorial 2:
+plots, screenshots, and a demo video for the behaviors
 
 - obstacle avoidance
 - wall following
@@ -176,7 +176,6 @@ graphics/
   plots/                             Generated analysis plots
   video/                             Demo video output
 build/                               Generated CMake build output
-report.md, report.pdf                Project report files
 stop_go_exp_config.csv               Stop-and-go run configuration table
 stop_and_go_data.csv                 Latest generated stop-and-go run
 ```
