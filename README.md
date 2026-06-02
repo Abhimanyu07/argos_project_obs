@@ -1,4 +1,4 @@
-# Collective Robotics Tutorial 2 - Robot Behaviors and Swarm Systems
+# Collective Robotics: Robot Behaviors and Swarm Systems
 
 This project contains ARGoS3 experiments, recorded stop-and-go data, analysis
 plots, screenshots, and a demo video for the behaviors required in Tutorial 2:
